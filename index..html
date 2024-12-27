@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وسائل الدفع</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        .container {
+            padding: 30px;
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #4CAF50;
+            text-align: center;
+        }
+
+        .payment-methods {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .payment-card {
+            width: 250px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            margin: 10px;
+        }
+
+        .payment-card img {
+            max-width: 100px;
+            margin-bottom: 15px;
+        }
+
+        .payment-card h3 {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .payment-card p {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .payment-card button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .payment-card button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>وسائل الدفع المتاحة</h1>
+
+        <div class="payment-methods">
+            <!-- PayPal Payment Option -->
+            <div class="payment-card" id="paypal">
+                <!-- صورة PayPal -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/PayPal_logo_2014.svg/500px-PayPal_logo_2014.svg.png" alt="PayPal" />
+                <h3>الدفع عبر بايبال</h3>
+                <p>استخدم بايبال لإتمام عملية الدفع بكل سهولة.</p>
+                <button onclick="window.location.href='https://www.paypal.com/paypalme/username/amount'">الدفع عبر بايبال</button>
+            </div>
+
+            <!-- CCP Payment Option -->
+            <div class="payment-card" id="ccp">
+                <!-- صورة CCP -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Logo_CCP.svg" alt="CCP" />
+                <h3>الدفع عبر الحساب البريدي</h3>
+                <p>يمكنك الدفع عبر حسابك البريدي (CCP).</p>
+                <button onclick="window.location.href='https://example.com/ccp-payment-link'">الدفع عبر الحساب البريدي</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
