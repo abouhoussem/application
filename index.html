@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>وسائل الدفع</title>
+    <title>تفعيل التطبيق</title>
     <style>
-        /* إعدادات الخطوط والألوان */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f3f7fa;
             color: #333;
+            text-align: center;
         }
         .container {
-            max-width: 700px;
+            max-width: 600px;
             margin: 50px auto;
             padding: 20px;
             background: #fff;
@@ -22,95 +22,89 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
         h1 {
-            text-align: center;
             font-size: 2rem;
             color: #4CAF50;
             margin-bottom: 20px;
         }
         p {
-            text-align: center;
-            font-size: 1.1rem;
-            color: #555;
-            line-height: 1.6;
-        }
-        .طرق-الدفع {
-            display: flex;
-            justify-content: space-around;
-            gap: 20px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-        .بطاقة-الدفع {
-            flex: 1;
-            min-width: 300px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .بطاقة-الدفع:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-        .بطاقة-الدفع h3 {
-            font-size: 1.5rem;
-            color: #4CAF50;
-            margin-bottom: 10px;
-        }
-        .بطاقة-الدفع p {
-            font-size: 1rem;
+            font-size: 1.2rem;
             color: #555;
             margin-bottom: 20px;
+            line-height: 1.6;
         }
-        .زر-الدفع {
+        a, button {
+            display: inline-block;
             background-color: #4CAF50;
             color: white;
-            border: none;
+            text-decoration: none;
             padding: 10px 20px;
             font-size: 1rem;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.3s;
         }
-        .زر-الدفع:hover {
+        a:hover, button:hover {
             background-color: #45a049;
             transform: scale(1.05);
         }
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 0.9rem;
-            color: #777;
+        .hidden {
+            display: none;
+        }
+        .input-group {
+            margin-top: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 80%;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>وسائل الدفع المتاحة</h1>
-        <p>اختر وسيلة الدفع لإتمام عملية الدفع بكل سهولة وأمان.</p>
-        <div class="طرق-الدفع">
-            <!-- الدفع عبر PayPal -->
-            <div class="بطاقة-الدفع">
-                <h3>الدفع عبر بايبال</h3>
-                <p>استخدم حساب في بايبال لدفع الأموال بشكل آمن وسريع.</p>
-                <button class="زر-الدفع" onclick="window.location.href='paypal.html'">الدفع عبر بايبال</button>
-            </div>
-            <!-- الدفع عبر CCP -->
-            <div class="بطاقة-الدفع">
-                <h3>الدفع عبر الحساب بريدي</h3>
-                <p>استخدم الحساب البريدي لدفع الأموال بكل سهولة.</p>
-                <button class="زر-الدفع" onclick="window.location.href='payccp.html'">الدفع عبر الحساب البريدي</button>
-            </div>
-            <!-- تفعيل التطبيق -->
-            <div class="بطاقة-الدفع">
-                <h3>تفعيل التطبيق</h3>
-                <p>قم بتفعيل التطبيق بسهولة عبر هذه الصفحة.</p>
-                <button class="زر-الدفع" onclick="window.open('Activate.html', '_blank')">تفعيل التطبيق</button>
+        <h1>تفعيل التطبيق</h1>
+        <p>يرجى إتمام عملية الدفع للوصول إلى كود التفعيل الخاص بك.</p>
+        
+        <!-- زر الدفع -->
+        <button id="payButton" onclick="completePayment()">دفع السعر</button>
+
+        <!-- زر تحميل الكود (مخفي) -->
+        <div id="downloadSection" class="hidden">
+            <p>تم الدفع بنجاح! يمكنك الآن تحميل كود التفعيل.</p>
+            <a href="https://nz.sa/QTilP" target="_blank">تحميل كود التفعيل</a>
+            
+            <!-- نافذة إدخال الكود -->
+            <div class="input-group">
+                <input type="text" id="activationCode" placeholder="أدخل كود التفعيل هنا">
+                <button onclick="activateApp()">تفعيل التطبيق</button>
             </div>
         </div>
     </div>
-    <footer>جميع الحقوق محفوظة © 2024</footer>
+
+    <script>
+        function completePayment() {
+            // محاكاة إتمام الدفع (يمكن ربطها بخدمة دفع حقيقية)
+            alert("تم الدفع بنجاح!");
+            
+            // عرض قسم تحميل الكود
+            document.getElementById("downloadSection").classList.remove("hidden");
+        }
+
+        function activateApp() {
+            // الكود الصحيح للتفعيل
+            const correctCode = "123456";
+            const userCode = document.getElementById("activationCode").value;
+
+            if (userCode === correctCode) {
+                alert("تم تفعيل التطبيق بنجاح!");
+                // يمكنك إضافة إجراءات إضافية هنا
+            } else {
+                alert("كود التفعيل غير صحيح. يرجى المحاولة مرة أخرى.");
+            }
+        }
+    </script>
 </body>
 </html>
