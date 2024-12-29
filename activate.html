@@ -3,89 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>التفعيل</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <title>تفعيل التطبيق</title>
     <style>
         body {
-            font-family: 'Cairo', sans-serif;
-            background-color: #f0f8ff;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            background-color: #f3f7fa;
+            color: #333;
             text-align: center;
         }
+
         .container {
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            width: 80%;
             max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
+
         h1 {
-            font-size: 3rem;
-            color: #007bff;
+            font-size: 2rem;
+            color: #4CAF50;
             margin-bottom: 20px;
         }
-        a {
-            font-size: 1.5rem;
-            display: block;
-            color: #007bff;
-            margin: 15px 0;
-            text-decoration: none;
-            transition: color 0.3s;
+
+        p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.6;
         }
-        a:hover {
-            color: #0056b3;
+
+        .input-group {
+            margin-top: 20px;
         }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 80%;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
         .hidden {
             display: none;
         }
-        .footer {
+
+        footer {
+            text-align: center;
             margin-top: 30px;
-            font-size: 1rem;
-            color: #6c757d;
-        }
-        .footer a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        .footer a:hover {
-            text-decoration: underline;
+            font-size: 0.9rem;
+            color: #777;
         }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <h1>التفعيل</h1>
-        <a href="activate.html" id="returnToActivation" class="hidden">العودة إلى صفحة التفعيل</a><br>
+        <h1>تفعيل التطبيق</h1>
+        <p>يرجى إدخال كود التفعيل الخاص بك بعد إتمام عملية الدفع.</p>
 
-        <!-- إضافة روابط لصفحات الدفع الجديدة -->
-        <a href="pay.html">الدفع عبر CCPPAY</a><br>
-        <a href="paypal.html">الدفع عبر PayPal</a>
-
-        <div id="paymentStatus"></div>
+        <!-- نافذة إدخال كود التفعيل -->
+        <div class="input-group">
+            <input type="text" id="activationCode" placeholder="أدخل كود التفعيل هنا">
+            <button onclick="activateApp()">تفعيل التطبيق</button>
+        </div>
     </div>
 
-    <script>
-        // هنا نقوم بالتحقق من البريد الإلكتروني وحالة الدفع
-        const authorizedUser = "your_email@example.com"; // البريد الإلكتروني الخاص بك
-        const urlParams = new URLSearchParams(window.location.search);
-        const paymentStatus = urlParams.get('payment');
-        const userEmail = urlParams.get('email'); // البريد الإلكتروني المرسل من صفحة الدفع
+    <footer>
+        جميع الحقوق محفوظة © 2024
+    </footer>
 
-        if (paymentStatus === 'success' && userEmail === authorizedUser) {
-            document.getElementById('returnToActivation').classList.remove('hidden');
-            document.getElementById('paymentStatus').innerHTML = "<p>تم الدفع بنجاح! يمكنك الآن الوصول إلى التطبيق.</p>";
-        } else if (paymentStatus === 'success') {
-            document.getElementById('paymentStatus').innerHTML = "<p>تم الدفع بنجاح ولكن هذا التطبيق مخصص لك فقط.</p>";
-        } else {
-            document.getElementById('paymentStatus').innerHTML = "<p>يرجى إتمام الدفع أولاً.</p>";
-            // توجيه إلى صفحة الدفع أو إظهار رابط العودة إلى صفحة الدفع
+    <script>
+        function activateApp() {
+            const correctCode = "12345-67890"; // الكود الصحيح للتفعيل
+            const userCode = document.getElementById("activationCode").value;
+
+            if (userCode === correctCode) {
+                alert("تم تفعيل التطبيق بنجاح!");
+                window.location.href = "https://abouhoussem.github.io/application/"; // رابط التطبيق بعد التفعيل
+            } else {
+                alert("كود التفعيل غير صحيح. يرجى المحاولة مرة أخرى.");
+            }
         }
     </script>
+
 </body>
 </html>
