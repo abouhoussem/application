@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>وسائل الدفع</title>
     <style>
-        /* إعدادات الخطوط والألوان */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -95,25 +94,6 @@
             font-size: 0.9rem;
             color: #777;
         }
-
-        /* إعدادات نافذة إدخال كود التفعيل */
-        .input-group {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        input[type="text"] {
-            padding: 10px;
-            font-size: 1rem;
-            margin-bottom: 10px;
-            width: 80%;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        .hidden {
-            display: none;
-        }
     </style>
 </head>
 <body>
@@ -137,34 +117,11 @@
                 <button onclick="window.location.href='payccp.html'">الدفع عبر الحساب البريدي</button>
             </div>
         </div>
-
-        <!-- نافذة إدخال كود التفعيل للمسؤول -->
-        <div class="input-group">
-            <p>إذا كنت مسؤولاً، أدخل كود التفعيل للوصول إلى لوحة التحكم.</p>
-            <input type="text" id="adminCode" placeholder="أدخل كود التفعيل هنا">
-            <button onclick="checkAdminCode()">دخول المسؤول</button>
-            <p id="errorMessage" class="hidden" style="color: red;">كود التفعيل غير صحيح، حاول مرة أخرى.</p>
-        </div>
     </div>
 
     <footer>
         جميع الحقوق محفوظة © 2024
     </footer>
-
-    <script>
-        function checkAdminCode() {
-            const adminCode = document.getElementById("adminCode").value;
-            const correctCode = "12345-67890"; // كود التفعيل الخاص بالمسؤول
-
-            if (adminCode === correctCode) {
-                // توجيه المسؤول إلى لوحة التحكم بعد التحقق من الكود
-                window.location.href = "admin_dashboard.html";
-            } else {
-                // عرض رسالة خطأ إذا كان الكود غير صحيح
-                document.getElementById("errorMessage").classList.remove("hidden");
-            }
-        }
-    </script>
 
 </body>
 </html>
